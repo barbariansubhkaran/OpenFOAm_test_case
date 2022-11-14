@@ -64,19 +64,19 @@ castellatedMeshControls
     (
         {
             file "Inlet.eMesh";
-            level 0;
+            level 2;
         }
         {
             file "Interface.eMesh";
-            level 0;
+            level 2;
         }
         {
             file "Outlet.eMesh";
-            level 0;
+            level 2;
         }
         {
             file "Solid.eMesh";
-            level 0;
+            level 2;
         }
 
     );
@@ -144,19 +144,19 @@ addLayersControls
     {
         Inlet
         {
-             nSurfaceLayers 2;
+             nSurfaceLayers 0;
         }
         Interface
         {
-             nSurfaceLayers 2;
+             nSurfaceLayers 0;
         }
         Outlet
         {
-             nSurfaceLayers 2;
+             nSurfaceLayers 0;
         }
         Solid
         {
-             nSurfaceLayers 2;
+             nSurfaceLayers 0;
         }
 
     }
