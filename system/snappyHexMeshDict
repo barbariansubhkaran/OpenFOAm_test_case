@@ -7,7 +7,7 @@ FoamFile
 }
 
 // Exported by SnappyHexMesh GUI add-on for Blender v1.0
-// Source file: 
+// Source file:
 // Export date: 2022-11-11 16:05:44.811481
 
 castellatedMesh true;
@@ -84,22 +84,22 @@ castellatedMeshControls
     {
         Inlet
         {
-            level (0 0);
+            level (2 2);
             patchInfo { type patch; }
         }
         Interface
         {
-            level (0 0);
+            level (2 2);
             patchInfo { type wall; }
         }
         Outlet
         {
-            level (0 0);
+            level (2 2);
             patchInfo { type patch; }
         }
         Solid
         {
-            level (0 0);
+            level (2 2);
             patchInfo { type wall; }
         }
 
@@ -112,12 +112,12 @@ castellatedMeshControls
 
 snapControls
 {
-    nSmoothPatch    3;
-    tolerance       2;
-    nSolveIter      300;
+    nSmoothPatch    5;
+    tolerance       1;
+    nSolveIter      500;
     nRelaxIter      10;
     nFeatureSnapIter 10;
-    implicitFeatureSnap false;
+    implicitFeatureSnap true;
     explicitFeatureSnap true;
     multiRegionFeatureSnap true;
 }
@@ -144,19 +144,19 @@ addLayersControls
     {
         Inlet
         {
-             nSurfaceLayers 0;
+             nSurfaceLayers 2;
         }
         Interface
         {
-             nSurfaceLayers 0;
+             nSurfaceLayers 2;
         }
         Outlet
         {
-             nSurfaceLayers 0;
+             nSurfaceLayers 2;
         }
         Solid
         {
-             nSurfaceLayers 0;
+             nSurfaceLayers 2;
         }
 
     }
