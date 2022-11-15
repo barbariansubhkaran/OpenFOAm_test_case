@@ -1,0 +1,1059 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2112                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+Build  : _14aeaf8dab-20211220 OPENFOAM=2112 version=v2112
+Arch   : "LSB;label=32;scalar=64"
+Exec   : chtMultiRegionSimpleFoam -parallel
+Date   : Nov 15 2022
+Time   : 05:51:29
+Host   : gagan-Z97P-D3
+PID    : 497058
+I/O    : uncollated
+Case   : /media/gagan/GH/OpenFOAm_test_case
+nProcs : 4
+Hosts  :
+(
+    (gagan-Z97P-D3 4)
+)
+Pstream initialized with:
+    floatTransfer      : 0
+    nProcsSimpleSum    : 0
+    commsType          : nonBlocking
+    polling iterations : 0
+trapFpe: Floating point exception trapping enabled (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 5, maxFileModificationPolls 20)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create fluid mesh for region Fluid for time = 350
+
+Create solid mesh for region Solid for time = 350
+
+*** Reading fluid mesh thermophysical properties for region Fluid
+
+    Adding to thermoFluid
+
+Selecting thermodynamics package 
+{
+    type            heRhoThermo;
+    mixture         pureMixture;
+    transport       const;
+    thermo          hConst;
+    equationOfState incompressiblePerfectGas;
+    specie          specie;
+    energy          sensibleEnthalpy;
+}
+
+    Adding to rhoFluid
+
+    Adding to UFluid
+
+    Adding to phiFluid
+
+    Adding to hRefFluid
+
+    Adding to ghFluid
+
+    Adding to ghfFluid
+
+    Adding to turbulence
+
+Selecting turbulence model type laminar
+Selecting laminar stress model Stokes
+Selecting radiationModel viewFactor
+    Adding MRF
+
+Creating MRF zone list from MRFProperties
+    Adding fvOptions
+
+Creating finite volume options from "system/fvOptions"
+
+*** Reading solid mesh thermophysical properties for region Solid
+
+    Adding to thermos
+
+Selecting thermodynamics package 
+{
+    type            heSolidThermo;
+    mixture         pureMixture;
+    transport       constIso;
+    thermo          hConst;
+    equationOfState rhoConst;
+    specie          specie;
+    energy          sensibleEnthalpy;
+}
+
+    Adding to radiations
+
+Selecting radiationModel opaqueSolid
+    Adding fvOptions
+
+Creating finite volume options from "system/fvOptions"
+
+Selecting finite volume options type scalarSemiImplicitSource
+    Source: scalarSource
+    - selecting all cells
+    - selected 23544 cell(s) with volume 0.3645028
+Time = 351
+
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.008515767, Final residual = 6.860877e-06, No Iterations 1
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.008763846, Final residual = 8.525111e-06, No Iterations 1
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.006830792, Final residual = 4.584745e-06, No Iterations 1
+DILUPBiCGStab:  Solving for h, Initial residual = 0.003704821, Final residual = 1.317892e-05, No Iterations 2
+Min/max T:230.5623 1312.197
+GAMG:  Solving for p_rgh, Initial residual = 0.006859653, Final residual = 2.98476e-05, No Iterations 5
+GAMG:  Solving for p_rgh, Initial residual = 0.001498724, Final residual = 5.867531e-06, No Iterations 3
+time step continuity errors : sum local = 0.004257104, global = -0.002360555, cumulative = -0.002360555
+Min/max rho:0.2658447 1.504379
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 1, Final residual = 0.009703452, No Iterations 88
+Min/max T:599.8915 130534.7
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.9970215, Final residual = 0.009842793, No Iterations 17
+Min/max T:102896.5 236819.6
+
+energyCoupling: 1/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.01016982, Final residual = 6.582419e-05, No Iterations 2
+Min/max T:220.8194 231587.5
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.7809426, Final residual = 0.00685699, No Iterations 17
+Min/max T:102865.5 236811.3
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.9458135, Final residual = 0.0065732, No Iterations 17
+Min/max T:86244.15 174679.9
+
+energyCoupling: 2/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.008252698, Final residual = 1.70321e-05, No Iterations 2
+Min/max T:215.7252 133922.3
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.5837059, Final residual = 0.005746124, No Iterations 15
+Min/max T:86240.55 134992.6
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.9228672, Final residual = 0.007353251, No Iterations 17
+Min/max T:100264.6 142190.8
+
+energyCoupling: 3/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.007617239, Final residual = 5.066919e-05, No Iterations 2
+Min/max T:213.7782 142184.8
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.450677, Final residual = 0.00448684, No Iterations 23
+Min/max T:127259.6 144117.4
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.8328558, Final residual = 0.00789436, No Iterations 14
+Min/max T:127041.7 144111.3
+
+energyCoupling: 4/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.00725104, Final residual = 4.156544e-05, No Iterations 2
+Min/max T:212.9673 130211.5
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.4607587, Final residual = 0.003971597, No Iterations 13
+Min/max T:123448.4 130819.1
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.6037295, Final residual = 0.005477918, No Iterations 14
+Min/max T:123443.2 130808.6
+
+energyCoupling: 5/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.006976178, Final residual = 3.602099e-05, No Iterations 2
+Min/max T:212.6472 130547.5
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.4167535, Final residual = 0.003638746, No Iterations 13
+Min/max T:129091.5 131867.4
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.3180748, Final residual = 0.003147511, No Iterations 13
+Min/max T:129216.1 131861.8
+
+energyCoupling: 6/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.006724727, Final residual = 3.030764e-05, No Iterations 2
+Min/max T:212.5192 130151
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.2640909, Final residual = 0.00257712, No Iterations 13
+Min/max T:128796.7 130776.8
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.1201645, Final residual = 0.001147292, No Iterations 19
+Min/max T:128791.3 130527.4
+
+energyCoupling: 7/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.006481342, Final residual = 2.43175e-05, No Iterations 2
+Min/max T:212.4668 130181.8
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.1185991, Final residual = 0.001049566, No Iterations 12
+Min/max T:129287.6 130528.1
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.03999679, Final residual = 0.001321953, No Iterations 100
+Min/max T:129511.1 130676
+
+energyCoupling: 8/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.006245869, Final residual = 1.836148e-05, No Iterations 2
+Min/max T:212.4468 130300.8
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.1871487, Final residual = 0.001646044, No Iterations 17
+Min/max T:129652.3 130679.8
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.1594857, Final residual = 0.001458309, No Iterations 17
+Min/max T:129657.8 130678.6
+
+energyCoupling: 9/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.006006457, Final residual = 1.421261e-05, No Iterations 2
+Min/max T:212.4384 130304.2
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.06819439, Final residual = 0.0005238372, No Iterations 17
+Min/max T:129655.3 130675.7
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.03101762, Final residual = 0.0002788496, No Iterations 20
+Min/max T:129649.7 130675.8
+
+energyCoupling: 10/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.005766974, Final residual = 2.692333e-05, No Iterations 2
+Min/max T:212.4351 130299.7
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.01950022, Final residual = 0.0001670082, No Iterations 33
+Min/max T:129651.4 130675.2
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.005468651, Final residual = 0.0003019024, No Iterations 100
+Min/max T:129654.6 130689.4
+ExecutionTime = 0.37 s  ClockTime = 1 s
+
+Time = 352
+
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.01042282, Final residual = 8.661186e-06, No Iterations 1
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.0104993, Final residual = 1.026614e-05, No Iterations 1
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.0071099, Final residual = 4.562811e-06, No Iterations 1
+DILUPBiCGStab:  Solving for h, Initial residual = 0.007398267, Final residual = 2.018692e-05, No Iterations 2
+Min/max T:210.0418 130314
+GAMG:  Solving for p_rgh, Initial residual = 0.006530397, Final residual = 2.484588e-05, No Iterations 5
+GAMG:  Solving for p_rgh, Initial residual = 0.001606902, Final residual = 7.527345e-06, No Iterations 3
+time step continuity errors : sum local = 0.005234363, global = -0.0004833633, cumulative = -0.002843919
+Min/max rho:0.233716 1.591574
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.01655129, Final residual = 0.0001522028, No Iterations 19
+Min/max T:129668.2 130689.9
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.01697447, Final residual = 0.0001540905, No Iterations 17
+Min/max T:129668.5 130689.7
+
+energyCoupling: 1/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.007198638, Final residual = 4.67273e-05, No Iterations 2
+Min/max T:207.6325 130314.3
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.005664131, Final residual = 4.481224e-05, No Iterations 17
+Min/max T:129668 130689.5
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.00317644, Final residual = 2.842488e-05, No Iterations 20
+Min/max T:129667.5 130689.5
+
+energyCoupling: 2/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.006057692, Final residual = 1.760657e-05, No Iterations 2
+Min/max T:206.6659 130314
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.001714501, Final residual = 7.896849e-05, No Iterations 100
+Min/max T:129667.6 130696.9
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.009499181, Final residual = 8.686193e-05, No Iterations 18
+Min/max T:129675.2 130697.1
+
+energyCoupling: 3/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.005559674, Final residual = 1.346462e-05, No Iterations 2
+Min/max T:206.2774 130322.1
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.009598154, Final residual = 8.502796e-05, No Iterations 17
+Min/max T:129675.7 130697
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.003764516, Final residual = 2.690469e-05, No Iterations 17
+Min/max T:129675.4 130696.9
+
+energyCoupling: 4/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.005241222, Final residual = 1.175321e-05, No Iterations 2
+Min/max T:206.1209 130321.3
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.001773544, Final residual = 1.703139e-05, No Iterations 20
+Min/max T:129675 130696.9
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.001171451, Final residual = 2.374035e-05, No Iterations 100
+Min/max T:129675.1 130700.7
+
+energyCoupling: 5/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.004973669, Final residual = 1.037882e-05, No Iterations 2
+Min/max T:206.0579 130325.2
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.004665328, Final residual = 4.488008e-05, No Iterations 18
+Min/max T:129679 130700.8
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.004799717, Final residual = 4.316186e-05, No Iterations 17
+Min/max T:129679.2 130700.8
+
+energyCoupling: 6/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.00472664, Final residual = 9.609785e-06, No Iterations 2
+Min/max T:206.0326 130325.3
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.001891493, Final residual = 1.566672e-05, No Iterations 17
+Min/max T:129679 130700.7
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.0009057281, Final residual = 2.892776e-05, No Iterations 100
+Min/max T:129678.8 130703.9
+
+energyCoupling: 7/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.004490808, Final residual = 9.108171e-06, No Iterations 2
+Min/max T:206.0224 130328.4
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.004662013, Final residual = 4.573206e-05, No Iterations 17
+Min/max T:129682.1 130703.9
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.004136108, Final residual = 3.676644e-05, No Iterations 17
+Min/max T:129682.3 130703.9
+
+energyCoupling: 8/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.004262277, Final residual = 8.864834e-06, No Iterations 2
+Min/max T:206.0183 130328.5
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.001811772, Final residual = 1.442412e-05, No Iterations 17
+Min/max T:129682.2 130703.9
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.0007653982, Final residual = 2.453542e-05, No Iterations 100
+Min/max T:129682 130706.7
+
+energyCoupling: 9/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.004039645, Final residual = 8.969452e-06, No Iterations 2
+Min/max T:206.0166 130331.2
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.00404931, Final residual = 4.027231e-05, No Iterations 17
+Min/max T:129684.8 130706.8
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.003555862, Final residual = 3.106997e-05, No Iterations 17
+Min/max T:129685 130706.8
+
+energyCoupling: 10/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.003821686, Final residual = 9.623471e-06, No Iterations 2
+Min/max T:206.0159 130331.3
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.001567066, Final residual = 1.240916e-05, No Iterations 17
+Min/max T:129684.9 130706.7
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.0006579232, Final residual = 2.274306e-05, No Iterations 100
+Min/max T:129684.8 130709.1
+ExecutionTime = 0.64 s  ClockTime = 1 s
+
+Time = 353
+
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.008606493, Final residual = 6.885585e-06, No Iterations 1
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.009180614, Final residual = 9.205944e-06, No Iterations 1
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.007055468, Final residual = 4.716816e-06, No Iterations 1
+DILUPBiCGStab:  Solving for h, Initial residual = 0.005246454, Final residual = 1.400346e-05, No Iterations 2
+Min/max T:203.5068 130333.6
+GAMG:  Solving for p_rgh, Initial residual = 0.008635273, Final residual = 6.287451e-05, No Iterations 4
+GAMG:  Solving for p_rgh, Initial residual = 0.001339524, Final residual = 6.380266e-06, No Iterations 4
+time step continuity errors : sum local = 0.004658026, global = -0.002528999, cumulative = -0.005372918
+Min/max rho:0.09509781 1.663549
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.003533408, Final residual = 3.432094e-05, No Iterations 17
+Min/max T:129687.2 130709.1
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.00310089, Final residual = 2.770546e-05, No Iterations 17
+Min/max T:129687.4 130709.1
+
+energyCoupling: 1/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.008152913, Final residual = 3.935442e-05, No Iterations 2
+Min/max T:186.2743 130333.7
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.001378995, Final residual = 2.047324e-05, No Iterations 100
+Min/max T:129687.3 130723.7
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.01991639, Final residual = 0.0001940757, No Iterations 17
+Min/max T:129701.7 130724.1
+
+energyCoupling: 2/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.005743493, Final residual = 1.546851e-05, No Iterations 2
+Min/max T:179.3231 130349.6
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.01794719, Final residual = 0.0001615773, No Iterations 17
+Min/max T:129702.5 130724
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.007494194, Final residual = 5.712071e-05, No Iterations 17
+Min/max T:129702.2 130723.7
+
+energyCoupling: 3/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.005038116, Final residual = 3.156458e-05, No Iterations 2
+Min/max T:176.5224 130348
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.003199052, Final residual = 3.151974e-05, No Iterations 96
+Min/max T:129701.5 130737.5
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.01985743, Final residual = 0.0001916636, No Iterations 17
+Min/max T:129715.4 130737.8
+
+energyCoupling: 4/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.004641376, Final residual = 2.837517e-05, No Iterations 2
+Min/max T:175.3894 130363.3
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.01768065, Final residual = 0.000155688, No Iterations 17
+Min/max T:129716.4 130737.7
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.007668212, Final residual = 5.468874e-05, No Iterations 17
+Min/max T:129716 130737.4
+
+energyCoupling: 5/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.004353186, Final residual = 2.503546e-05, No Iterations 2
+Min/max T:174.933 130361.8
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.003217048, Final residual = 7.068572e-05, No Iterations 100
+Min/max T:129715.3 130744.2
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.01072353, Final residual = 0.0001019611, No Iterations 17
+Min/max T:129722.2 130744.4
+
+energyCoupling: 6/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.004124602, Final residual = 2.331849e-05, No Iterations 2
+Min/max T:174.7492 130369.4
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.008947601, Final residual = 7.844071e-05, No Iterations 17
+Min/max T:129722.7 130744.4
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.004102427, Final residual = 2.958414e-05, No Iterations 17
+Min/max T:129722.5 130744.2
+
+energyCoupling: 7/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.003926164, Final residual = 2.153203e-05, No Iterations 2
+Min/max T:174.6752 130368.6
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.001660158, Final residual = 6.731189e-05, No Iterations 100
+Min/max T:129722.1 130748.4
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.006588467, Final residual = 6.332146e-05, No Iterations 17
+Min/max T:129726.4 130748.5
+
+energyCoupling: 8/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.003742445, Final residual = 1.9391e-05, No Iterations 2
+Min/max T:174.6455 130373.3
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.00557062, Final residual = 4.845234e-05, No Iterations 17
+Min/max T:129726.7 130748.5
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.002516107, Final residual = 1.853822e-05, No Iterations 17
+Min/max T:129726.6 130748.4
+
+energyCoupling: 9/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.003570279, Final residual = 1.700827e-05, No Iterations 2
+Min/max T:174.6335 130372.8
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.001030372, Final residual = 4.348213e-05, No Iterations 100
+Min/max T:129726.4 130751.5
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.004667364, Final residual = 4.523062e-05, No Iterations 17
+Min/max T:129729.5 130751.6
+
+energyCoupling: 10/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.003406174, Final residual = 1.467353e-05, No Iterations 2
+Min/max T:174.6287 130376.3
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.004015165, Final residual = 3.457298e-05, No Iterations 17
+Min/max T:129729.7 130751.6
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.001787339, Final residual = 1.293012e-05, No Iterations 17
+Min/max T:129729.6 130751.5
+ExecutionTime = 0.94 s  ClockTime = 1 s
+
+Time = 354
+
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.009139621, Final residual = 7.174391e-06, No Iterations 1
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.01022569, Final residual = 1.118918e-05, No Iterations 1
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.007533237, Final residual = 4.930116e-06, No Iterations 1
+DILUPBiCGStab:  Solving for h, Initial residual = 0.005365245, Final residual = 1.89976e-05, No Iterations 2
+Min/max T:169.1323 130375.9
+GAMG:  Solving for p_rgh, Initial residual = 0.007939533, Final residual = 4.847047e-05, No Iterations 5
+GAMG:  Solving for p_rgh, Initial residual = 0.001250331, Final residual = 1.22219e-05, No Iterations 3
+time step continuity errors : sum local = 0.009986054, global = -0.005434768, cumulative = -0.01080769
+Min/max rho:0.03965001 1.90105
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.0007368488, Final residual = 2.749631e-05, No Iterations 100
+Min/max T:129729.5 130754.1
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.003898332, Final residual = 3.75005e-05, No Iterations 17
+Min/max T:129732.1 130754.2
+
+energyCoupling: 1/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.007803271, Final residual = 5.463152e-05, No Iterations 2
+Min/max T:152.9333 130378.8
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.003413668, Final residual = 3.205354e-05, No Iterations 19
+Min/max T:129732.3 130754.1
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.001479298, Final residual = 2.279158e-05, No Iterations 100
+Min/max T:129732.2 130758.7
+
+energyCoupling: 2/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0056489, Final residual = 1.577684e-05, No Iterations 2
+Min/max T:146.3549 130383.2
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.006566651, Final residual = 6.381399e-05, No Iterations 17
+Min/max T:129736.6 130758.8
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.005400212, Final residual = 4.980769e-05, No Iterations 17
+Min/max T:129736.9 130758.8
+
+energyCoupling: 3/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.005078569, Final residual = 2.145635e-05, No Iterations 2
+Min/max T:143.6873 130383.3
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.002371585, Final residual = 6.571561e-05, No Iterations 100
+Min/max T:129736.9 130765.4
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.009941176, Final residual = 9.639101e-05, No Iterations 17
+Min/max T:129743.5 130765.6
+
+energyCoupling: 4/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.004768621, Final residual = 3.954673e-05, No Iterations 2
+Min/max T:142.6005 130390.6
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.008113238, Final residual = 7.194709e-05, No Iterations 17
+Min/max T:129743.9 130765.6
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.003547789, Final residual = 2.716546e-05, No Iterations 17
+Min/max T:129743.8 130765.4
+
+energyCoupling: 5/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.004551295, Final residual = 3.39225e-05, No Iterations 2
+Min/max T:142.1607 130389.9
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.001423703, Final residual = 1.614233e-05, No Iterations 100
+Min/max T:129743.5 130769.9
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.006665694, Final residual = 6.345872e-05, No Iterations 17
+Min/max T:129747.9 130770
+
+energyCoupling: 6/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.004379499, Final residual = 3.397992e-05, No Iterations 2
+Min/max T:141.9828 130394.8
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.005767619, Final residual = 5.058639e-05, No Iterations 17
+Min/max T:129748.2 130770
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.002558164, Final residual = 1.850497e-05, No Iterations 17
+Min/max T:129748.1 130769.9
+
+energyCoupling: 7/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.004227562, Final residual = 3.708418e-05, No Iterations 2
+Min/max T:141.9108 130394.3
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.001052802, Final residual = 8.580016e-06, No Iterations 87
+Min/max T:129747.9 130773
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.004687512, Final residual = 4.43845e-05, No Iterations 17
+Min/max T:129751 130773
+
+energyCoupling: 8/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.004085785, Final residual = 8.259045e-06, No Iterations 2
+Min/max T:141.8819 130397.8
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.004047189, Final residual = 3.544103e-05, No Iterations 17
+Min/max T:129751.2 130773
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.001804215, Final residual = 1.304504e-05, No Iterations 17
+Min/max T:129751.2 130773
+
+energyCoupling: 9/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.003947689, Final residual = 1.295861e-05, No Iterations 2
+Min/max T:141.8701 130397.4
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.0007422502, Final residual = 1.230536e-05, No Iterations 100
+Min/max T:129751 130775.4
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.003586979, Final residual = 3.42204e-05, No Iterations 17
+Min/max T:129753.4 130775.5
+
+energyCoupling: 10/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.003810405, Final residual = 1.369493e-05, No Iterations 2
+Min/max T:141.8653 130400.1
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.003119041, Final residual = 2.72904e-05, No Iterations 17
+Min/max T:129753.6 130775.5
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.00138088, Final residual = 9.965427e-06, No Iterations 17
+Min/max T:129753.5 130775.4
+ExecutionTime = 1.24 s  ClockTime = 2 s
+
+Time = 355
+
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.01013215, Final residual = 7.881749e-06, No Iterations 1
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.01168576, Final residual = 1.334808e-05, No Iterations 1
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.007676467, Final residual = 4.902679e-06, No Iterations 1
+DILUPBiCGStab:  Solving for h, Initial residual = 0.0062995, Final residual = 1.111656e-05, No Iterations 2
+Min/max T:133.547 130399.9
+GAMG:  Solving for p_rgh, Initial residual = 0.01012853, Final residual = 7.637708e-05, No Iterations 4
+GAMG:  Solving for p_rgh, Initial residual = 0.001485088, Final residual = 1.089985e-05, No Iterations 4
+time step continuity errors : sum local = 0.009088912, global = 0.0012561, cumulative = -0.009551587
+Min/max rho:0.0174643 2.3253
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.0005711523, Final residual = 5.344457e-06, No Iterations 90
+Min/max T:129753.4 130777.7
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.003370237, Final residual = 3.237682e-05, No Iterations 17
+Min/max T:129755.8 130777.7
+
+energyCoupling: 1/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.01213799, Final residual = 4.306721e-05, No Iterations 2
+Min/max T:89.76853 130402.4
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.002980719, Final residual = 5.247664e-05, No Iterations 100
+Min/max T:129755.9 130786.2
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.01034228, Final residual = 9.608959e-05, No Iterations 18
+Min/max T:129764.3 130786.5
+
+energyCoupling: 2/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.007679952, Final residual = 3.020611e-05, No Iterations 2
+Min/max T:71.81589 130411.4
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.009967548, Final residual = 9.209851e-05, No Iterations 17
+Min/max T:129764.7 130786.4
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.003906688, Final residual = 3.151697e-05, No Iterations 17
+Min/max T:129764.4 130786.2
+
+energyCoupling: 3/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.006588387, Final residual = 1.023089e-05, No Iterations 2
+Min/max T:64.458 130410.6
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.001782947, Final residual = 5.813271e-05, No Iterations 100
+Min/max T:129764.1 130794.6
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.01226173, Final residual = 0.0001193315, No Iterations 17
+Min/max T:129772.7 130794.9
+
+energyCoupling: 4/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.006093872, Final residual = 4.456489e-05, No Iterations 2
+Min/max T:61.44153 130420
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.01101577, Final residual = 9.779528e-05, No Iterations 17
+Min/max T:129773.3 130794.8
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.004729103, Final residual = 3.442265e-05, No Iterations 17
+Min/max T:129773 130794.6
+
+energyCoupling: 5/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.005798572, Final residual = 4.155957e-05, No Iterations 2
+Min/max T:60.20725 130419
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.002002468, Final residual = 5.807294e-05, No Iterations 100
+Min/max T:129772.6 130799.6
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.007481066, Final residual = 7.156412e-05, No Iterations 17
+Min/max T:129777.5 130799.7
+
+energyCoupling: 6/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.005592565, Final residual = 4.027061e-05, No Iterations 2
+Min/max T:59.70267 130424.5
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.006339256, Final residual = 5.666189e-05, No Iterations 17
+Min/max T:129777.9 130799.7
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.002865979, Final residual = 2.132221e-05, No Iterations 17
+Min/max T:129777.8 130799.6
+
+energyCoupling: 7/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.005409912, Final residual = 3.883504e-05, No Iterations 2
+Min/max T:59.49657 130424
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.001168627, Final residual = 3.793278e-05, No Iterations 100
+Min/max T:129777.5 130803.2
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.005587179, Final residual = 5.383836e-05, No Iterations 17
+Min/max T:129781.2 130803.3
+
+energyCoupling: 8/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.00524063, Final residual = 3.677881e-05, No Iterations 2
+Min/max T:59.41249 130428
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.00483718, Final residual = 4.292426e-05, No Iterations 17
+Min/max T:129781.5 130803.3
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.002145192, Final residual = 1.617559e-05, No Iterations 17
+Min/max T:129781.4 130803.2
+
+energyCoupling: 9/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.005076357, Final residual = 3.444942e-05, No Iterations 2
+Min/max T:59.37821 130427.6
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.0008870392, Final residual = 2.866146e-05, No Iterations 100
+Min/max T:129781.2 130806.4
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.004582957, Final residual = 4.444571e-05, No Iterations 17
+Min/max T:129784.3 130806.5
+
+energyCoupling: 10/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.004913782, Final residual = 3.324026e-05, No Iterations 2
+Min/max T:59.36425 130431.2
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.00400527, Final residual = 3.537871e-05, No Iterations 17
+Min/max T:129784.5 130806.5
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.001762423, Final residual = 1.296393e-05, No Iterations 17
+Min/max T:129784.5 130806.4
+ExecutionTime = 1.66 s  ClockTime = 2 s
+
+Time = 356
+
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for Ux, Initial residual = 0.01191092, Final residual = 9.938548e-06, No Iterations 1
+DILUPBiCGStab:  Solving for Uy, Initial residual = 0.01393316, Final residual = 1.605909e-05, No Iterations 1
+DILUPBiCGStab:  Solving for Uz, Initial residual = 0.008954654, Final residual = 6.42952e-06, No Iterations 1
+DILUPBiCGStab:  Solving for h, Initial residual = 0.008595199, Final residual = 3.884478e-05, No Iterations 2
+Min/max T:42.60753 130430.8
+GAMG:  Solving for p_rgh, Initial residual = 0.01402177, Final residual = 7.480435e-05, No Iterations 4
+GAMG:  Solving for p_rgh, Initial residual = 0.001966467, Final residual = 1.36626e-05, No Iterations 4
+time step continuity errors : sum local = 0.01098831, global = 0.008595992, cumulative = -0.0009555948
+Min/max rho:0.008587987 5.835005
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.0007328107, Final residual = 1.21335e-05, No Iterations 100
+Min/max T:129784.3 130809.4
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.004515583, Final residual = 4.347713e-05, No Iterations 17
+Min/max T:129787.4 130809.5
+
+energyCoupling: 1/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.01756919, Final residual = 5.960387e-05, No Iterations 2
+Min/max T:-38.91954 130434.2
+
+Solving for solid region Solid
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.004015556, Final residual = 3.943711e-05, No Iterations 19
+Min/max T:129787.6 130809.5
+
+Solving for solid region Solid
+DICPCG:  Solving for h, Initial residual = 0.001724352, Final residual = 1.698442e-05, No Iterations 89
+Min/max T:129787.6 130813.9
+
+energyCoupling: 2/10
+
+Solving for fluid region Fluid
+DILUPBiCGStab:  Solving for h, Initial residual = 0.01053268, Final residual = 0.0001048189, No Iterations 2

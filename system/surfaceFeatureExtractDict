@@ -11,12 +11,7 @@ FoamFile
 // Export date: 2022-11-11 16:05:44.811481
 
 
-Inlet.stl
-{
-    extractionMethod extractFromSurface;
-    extractFromSurfaceCoeffs { includedAngle 180; }
 
-}
 
 Interface.stl
 {
@@ -25,7 +20,7 @@ Interface.stl
 
 }
 
-Outlet.stl
+Fluid.stl
 {
     extractionMethod extractFromSurface;
     extractFromSurfaceCoeffs { includedAngle 180; }

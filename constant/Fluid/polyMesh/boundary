@@ -24,7 +24,12 @@ FoamFile
     }
     Interface
     {
-        type            wall;
+      type	mappedWall;
+      sampleRegion	Solid;
+      samplePatch	Interface;
+      sampleMode	nearestPatchFace;
+      offsetMode	uniform;
+      offset	(0.0 0.0 0.0);
         inGroups        List<word> 1(wall);
         nFaces          2184;
         startFace       43236;

@@ -16,10 +16,10 @@ addLayers       false;
 
 geometry
 {
-    Inlet
+    Fluid
     {
         type triSurfaceMesh;
-        file "Inlet.stl";
+        file "Fluid.stl";
         // Min Bounds = [-6.02553e-01 -6.02553e-01  1.28544e-01]
         // Max Bounds = [ 6.02553e-01  6.02553e-01  1.28544e-01]
         // Area = 1.13330e+00
@@ -32,14 +32,7 @@ geometry
         // Max Bounds = [ 6.02553e-01  6.02553e-01  1.28544e-01]
         // Area = 9.71757e-01
     }
-    Outlet
-    {
-        type triSurfaceMesh;
-        file "Outlet.stl";
-        // Min Bounds = [-6.02553e-01 -6.02553e-01 -1.28544e-01]
-        // Max Bounds = [ 6.02553e-01  6.02553e-01 -1.28544e-01]
-        // Area = 1.13330e+00
-    }
+
     Solid
     {
         type triSurfaceMesh;
@@ -57,23 +50,20 @@ castellatedMeshControls
     minRefinementCells 10;
     maxLoadUnbalance 0.1;
     nCellsBetweenLevels 3;
-    locationInMesh (0.76488 0 0.058025);
+    locationInMesh (0 -0.276463 0.035834);
     allowFreeStandingZoneFaces true;
     resolveFeatureAngle 30;
     features
     (
         {
-            file "Inlet.eMesh";
+            file "Fluid.eMesh";
             level 2;
         }
         {
             file "Interface.eMesh";
             level 2;
         }
-        {
-            file "Outlet.eMesh";
-            level 2;
-        }
+
         {
             file "Solid.eMesh";
             level 2;
@@ -82,21 +72,17 @@ castellatedMeshControls
     );
     refinementSurfaces
     {
-        Inlet
+        Fluid
         {
             level (2 2);
-            patchInfo { type patch; }
+            patchInfo { type wall; }
         }
         Interface
         {
             level (2 2);
             patchInfo { type wall; }
         }
-        Outlet
-        {
-            level (2 2);
-            patchInfo { type patch; }
-        }
+
         Solid
         {
             level (2 2);
@@ -142,7 +128,7 @@ addLayersControls
     nLayerIter      50;
     layers
     {
-        Inlet
+        Fluid
         {
              nSurfaceLayers 0;
         }
@@ -150,10 +136,7 @@ addLayersControls
         {
              nSurfaceLayers 0;
         }
-        Outlet
-        {
-             nSurfaceLayers 0;
-        }
+
         Solid
         {
              nSurfaceLayers 0;
