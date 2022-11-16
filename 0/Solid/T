@@ -24,11 +24,6 @@ boundaryField
 
 	Re_Solid
 	{
-		type	compressible::turbulentTemperatureCoupledBaffleMixed;
-		value	uniform 400.0;
-		kappaMethod	solidThermo;
-		kappa	none;
-		neighbourFieldName	T;
-		Tnbr	T; 
+		type zeroGradient;
 	}
 }
