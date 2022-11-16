@@ -36,14 +36,6 @@ functions
 		enabled	true;
 		log	true;
 		writeControl	writeTime;
-		region	fluid;
+		region	Fluid;
 	}
-}
-OptimisationSwitches
-{
-	fileHandler	uncollated;
-	fileModificationSkew	0;
-	maxMasterFileBufferSize	1.0E9;
-	maxThreadFileBufferSize	1.0E9;
-	mpiBufferSize	200000000;
 }
