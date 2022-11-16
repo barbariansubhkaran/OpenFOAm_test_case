@@ -15,10 +15,10 @@ FoamFile
 
 surfaces (
 
-  "Inlet.stl"
-  "Interface.stl"
-  "Solid.stl"
-  "Outlet.stl"
+  "Re_inlet.stl"
+  "Re_Interface.stl"
+  "Re_Solid.stl"
+  "Re_Outlet.stl"
 );
 
 // Identify a feature when angle between faces < includedAngle
