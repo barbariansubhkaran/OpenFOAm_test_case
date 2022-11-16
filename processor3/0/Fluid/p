@@ -1,7 +1,7 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  2112                                  |
+|  \\    /   O peration     | Version:  2206                                  |
 |   \\  /    A nd           | Website:  www.openfoam.com                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
@@ -22,20 +22,30 @@ internalField   uniform 100000;
 
 boundaryField
 {
-    Inlet
+    Re_inlet
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0;
+    }
+    Re_Outlet
     {
         type            calculated;
         value           uniform 100000;
     }
-    Interface
+    Re_Interface
     {
         type            calculated;
         value           uniform 100000;
     }
-    Outlet
+    Re_bottom_walls
     {
         type            calculated;
         value           uniform 100000;
+    }
+    Re_top_walls
+    {
+        type            calculated;
+        value           nonuniform List<scalar> 0;
     }
     procBoundary3to0
     {

@@ -1,7 +1,7 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  2112                                  |
+|  \\    /   O peration     | Version:  2206                                  |
 |   \\  /    A nd           | Website:  www.openfoam.com                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
@@ -16,36 +16,50 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-6
+8
 (
-    Inlet
+    Re_inlet
     {
         type            patch;
-        nFaces          504;
-        startFace       10017;
+        nFaces          3882;
+        startFace       193636;
     }
-    Interface
+    Re_Outlet
+    {
+        type            patch;
+        nFaces          0;
+        startFace       197518;
+    }
+    Re_Interface
     {
         type            mappedWall;
         inGroups        2(wall mappedPatch);
-        nFaces          530;
-        startFace       10521;
+        nFaces          2502;
+        startFace       197518;
         sampleMode      nearestPatchFace;
         sampleRegion    Solid;
-        samplePatch     Interface;
+        samplePatch     Re_Interface;
     }
-    Outlet
+    Re_bottom_walls
     {
-        type            patch;
-        nFaces          466;
-        startFace       11051;
+        type            wall;
+        inGroups        1(wall);
+        nFaces          1300;
+        startFace       200020;
+    }
+    Re_top_walls
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          6940;
+        startFace       201320;
     }
     procBoundary0to1
     {
         type            processor;
         inGroups        1(processor);
-        nFaces          245;
-        startFace       11517;
+        nFaces          1799;
+        startFace       208260;
         matchTolerance  0.0001;
         transform       unknown;
         myProcNo        0;
@@ -55,8 +69,8 @@ FoamFile
     {
         type            processor;
         inGroups        1(processor);
-        nFaces          199;
-        startFace       11762;
+        nFaces          710;
+        startFace       210059;
         matchTolerance  0.0001;
         transform       unknown;
         myProcNo        0;
@@ -66,8 +80,8 @@ FoamFile
     {
         type            processor;
         inGroups        1(processor);
-        nFaces          17;
-        startFace       11961;
+        nFaces          700;
+        startFace       210769;
         matchTolerance  0.0001;
         transform       unknown;
         myProcNo        0;

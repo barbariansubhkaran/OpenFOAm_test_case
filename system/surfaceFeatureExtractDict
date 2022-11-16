@@ -13,23 +13,44 @@ FoamFile
 
 
 
-Interface.stl
+Re_Interface.stl
 {
     extractionMethod extractFromSurface;
-    extractFromSurfaceCoeffs { includedAngle 180; }
+    extractFromSurfaceCoeffs { includedAngle 120; }
 
 }
 
-Fluid.stl
+Re_inlet.stl
 {
     extractionMethod extractFromSurface;
-    extractFromSurfaceCoeffs { includedAngle 180; }
+    extractFromSurfaceCoeffs { includedAngle 120; }
 
 }
 
-Solid.stl
+Re_Outlet.stl
 {
     extractionMethod extractFromSurface;
-    extractFromSurfaceCoeffs { includedAngle 180; }
+    extractFromSurfaceCoeffs { includedAngle 120; }
+
+}
+
+Re_Solid.stl
+{
+    extractionMethod extractFromSurface;
+    extractFromSurfaceCoeffs { includedAngle 120; }
+
+}
+
+Re_top_walls.stl
+{
+    extractionMethod extractFromSurface;
+    extractFromSurfaceCoeffs { includedAngle 120; }
+
+}
+
+Re_bottom_walls.stl
+{
+    extractionMethod extractFromSurface;
+    extractFromSurfaceCoeffs { includedAngle 120; }
 
 }

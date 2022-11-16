@@ -1,7 +1,7 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  2112                                  |
+|  \\    /   O peration     | Version:  2206                                  |
 |   \\  /    A nd           | Website:  www.openfoam.com                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
@@ -18,44 +18,44 @@ FoamFile
 
 4
 (
-    Interface
+    Re_Interface
     {
         type            mappedWall;
         inGroups        2(wall mappedPatch);
-        nFaces          496;
-        startFace       16885;
+        nFaces          1247;
+        startFace       80488;
         sampleMode      nearestPatchFace;
         sampleRegion    Fluid;
-        samplePatch     Interface;
+        samplePatch     Re_Interface;
     }
-    Solid
+    Re_Solid
     {
         type            wall;
         inGroups        1(wall);
-        nFaces          2132;
-        startFace       17381;
+        nFaces          7012;
+        startFace       81735;
     }
     procBoundary1to0
     {
         type            processor;
         inGroups        1(processor);
-        nFaces          181;
-        startFace       19513;
+        nFaces          389;
+        startFace       88747;
         matchTolerance  0.0001;
         transform       unknown;
         myProcNo        1;
         neighbProcNo    0;
     }
-    procBoundary1to3
+    procBoundary1to2
     {
         type            processor;
         inGroups        1(processor);
-        nFaces          120;
-        startFace       19694;
+        nFaces          279;
+        startFace       89136;
         matchTolerance  0.0001;
         transform       unknown;
         myProcNo        1;
-        neighbProcNo    3;
+        neighbProcNo    2;
     }
 )
 

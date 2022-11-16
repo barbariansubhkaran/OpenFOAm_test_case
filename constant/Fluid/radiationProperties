@@ -1,38 +1,41 @@
-/*--------------------------------*- C++ -*----------------------------------*\
-| =========                 |                                                 |
-| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  v2112                                 |
-|   \\  /    A nd           | Website:  www.openfoam.com                      |
-|    \\/     M anipulation  |                                                 |
-\*---------------------------------------------------------------------------*/
 FoamFile
 {
-    version     2.0;
-    format      ascii;
-    class       dictionary;
-    object      radiationProperties;
+	version	2.0;
+	class	dictionary;
+	format	ascii;
+	location	"constant/fluid";
+	object	radiationProperties;
 }
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
-radiation       on;
-
-radiationModel  viewFactor;
-
-viewFactorCoeffs
+radiation	true;
+solverFreq	5;
+radiationModel	none;
+absorptionEmissionModel	none;
+scatterModel	none;
+transmissivityModel	none;
+useSolarLoad	false;
+solarLoarCoeffs
 {
-    smoothing true; //Smooth view factor matrix (use when in a close surface
-                    //to force Sum(Fij = 1)
-    constantEmissivity true; //constant emissivity on surfaces.
+	sunDirectionModel	sunDirConstant;
+	sunDirection	(0.0 0.0 -1.0);
+	sunLoadModel	sunLoadConstant;
+	directSolarRad	1000.0;
+	diffuseSolarRad	0.0;
+	C	0.0;
+	useVFbeamToDiffuse	false;
+	spectralDistribution	(1);
+	wallCoupled	true;
+	solidCoupled	true;
 }
-
-// Number of flow iterations per radiation iteration
-solverFreq 3;
-
-absorptionEmissionModel none;
-
-scatterModel    none;
-
-sootModel       none;
-
-
-// ************************************************************************* //
+solarLoadCoeffs
+{
+	sunDirectionModel	sunDirConstant;
+	sunDirection	(0.0 0.0 -1.0);
+	sunLoadModel	sunLoadConstant;
+	directSolarRad	1000.0;
+	diffuseSolarRad	0.0;
+	C	0.0;
+	useVFbeamToDiffuse	false;
+	spectralDistribution	(1);
+	wallCoupled	true;
+	solidCoupled	true;
+}

@@ -8,22 +8,27 @@ FoamFile
 	arch	"LSB;label=32;scalar=64";
 }
 dimensions	[0 0 0 1 0 0 0];
-internalField	uniform 300.0;
+internalField	uniform 400.0;
 boundaryField
 {
-	Solid
+
+	Re_Interface
 	{
-		type	zeroGradient;
-	}
-	Interface
-	{
-		type	compressible::turbulentTemperatureRadCoupledMixed;
-		value	uniform 300.0;
-		qrNbr	qr;
-		qr	none;
-		neighbourFieldName	T;
+		type	compressible::turbulentTemperatureCoupledBaffleMixed;
+		value	uniform 400.0;
 		kappaMethod	solidThermo;
 		kappa	none;
+		neighbourFieldName	T;
 		Tnbr	T;
+	}
+
+	Re_Solid
+	{
+		type	compressible::turbulentTemperatureCoupledBaffleMixed;
+		value	uniform 400.0;
+		kappaMethod	solidThermo;
+		kappa	none;
+		neighbourFieldName	T;
+		Tnbr	T; 
 	}
 }

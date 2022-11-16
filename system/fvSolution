@@ -9,8 +9,9 @@ FoamFile
 solvers
 {
 }
-SIMPLE
+PIMPLE
 {
+	nOuterCorrectors	1;
 	energyCoupling
 	{
 		iterations	10;

@@ -11,30 +11,36 @@ dimensions	[0 0 0 1 0 0 0];
 internalField	uniform 300.0;
 boundaryField
 {
-
-  Interface
+	Re_inlet
 	{
-		type	compressible::turbulentTemperatureRadCoupledMixed;
+		type	fixedValue;
 		value	uniform 300.0;
-		qrNbr	none;
-		qr	qr;
-		neighbourFieldName	T;
+	}
+	Re_Outlet
+	{
+		type	zeroGradient;
+	}
+	Re_top_walls
+	{
+		type	zeroGradient;
+	}
+
+	Re_bottom_walls
+	{
+		type	zeroGradient;
+	}
+
+	Re_Interface
+	{
+		type	compressible::turbulentTemperatureCoupledBaffleMixed;
+		value	uniform 300.0;
 		kappaMethod	fluidThermo;
 		kappa	none;
+		neighbourFieldName	T;
 		Tnbr	T;
 		thicknessLayers	();
 		kappaLayers	();
-	}
-
-	Inlet
-	{
-		type	totalTemperature;
-		T0	uniform 300.0;
-		gamma	1.4;
-	}
-	Outlet
-	{
-		type	inletOutlet;
-		inletValue	uniform 300.0;
+		thicknessLayers	();
+		kappaLayers	();
 	}
 }

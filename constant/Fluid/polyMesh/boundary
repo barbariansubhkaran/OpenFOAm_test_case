@@ -1,44 +1,59 @@
 /*--------------------------------*- C++ -*----------------------------------*\
-  =========                 |
-  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
-   \\    /   O peration     | Website:  https://openfoam.org
-    \\  /    A nd           | Version:  10
-     \\/     M anipulation  |
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2206                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
 FoamFile
 {
-    format      ascii;
+    version     2.0;
+    format      binary;
+    arch        "LSB;label=32;scalar=64";
     class       polyBoundaryMesh;
     location    "constant/polyMesh";
     object      boundary;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-3
+5
 (
-    Inlet
+    Re_inlet
     {
         type            patch;
-        nFaces          1956;
-        startFace       41280;
+        nFaces          8572;
+        startFace       785152;
     }
-    Interface
+    Re_Outlet
+    {
+        type            patch;
+        nFaces          8494;
+        startFace       793724;
+    }
+    Re_Interface
     {
       type	mappedWall;
-      sampleRegion	Solid;
-      samplePatch	Interface;
-      sampleMode	nearestPatchFace;
-      offsetMode	uniform;
-      offset	(0.0 0.0 0.0);
-        inGroups        List<word> 1(wall);
-        nFaces          2184;
-        startFace       43236;
+       sampleRegion	Solid;
+       samplePatch	Re_Interface;
+       sampleMode	nearestPatchFace;
+       offsetMode	uniform;
+       offset	(0.0 0.0 0.0);
+        nFaces          5100;
+        startFace       802218;
     }
-    Outlet
+    Re_bottom_walls
     {
-        type            patch;
-        nFaces          1956;
-        startFace       45420;
+        type            wall;
+        inGroups        1(wall);
+        nFaces          21949;
+        startFace       807318;
+    }
+    Re_top_walls
+    {
+        type            wall;
+        inGroups        1(wall);
+        nFaces          14120;
+        startFace       829267;
     }
 )
 

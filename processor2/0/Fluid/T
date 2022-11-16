@@ -1,7 +1,7 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  2112                                  |
+|  \\    /   O peration     | Version:  2206                                  |
 |   \\  /    A nd           | Website:  www.openfoam.com                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
@@ -22,34 +22,33 @@ internalField   uniform 300;
 
 boundaryField
 {
-    Inlet
+    Re_inlet
     {
-        type            totalTemperature;
-        gamma           1.4;
-        T0              uniform 300;
-        value           uniform 300;
+        type            fixedValue;
+        value           nonuniform List<scalar> 0;
     }
-    Interface
+    Re_Outlet
     {
-        type            compressible::turbulentTemperatureRadCoupledMixed;
-        refValue        uniform 300;
-        refGradient     uniform 0;
-        valueFraction   uniform 1;
-        source          uniform 0;
-        value           uniform 300;
-        Tnbr            T;
-        qrNbr           none;
-        qr              qr;
-        thermalInertia  false;
+        type            zeroGradient;
+    }
+    Re_Interface
+    {
+        type            compressible::turbulentTemperatureCoupledBaffleMixed;
         kappaMethod     fluidThermo;
         kappa           none;
-        field           T;
-    }
-    Outlet
-    {
-        type            inletOutlet;
-        inletValue      uniform 300;
+        neighbourFieldName T;
+        Tnbr            T;
+        thicknessLayers ( );
+        kappaLayers     ( );
         value           uniform 300;
+    }
+    Re_bottom_walls
+    {
+        type            zeroGradient;
+    }
+    Re_top_walls
+    {
+        type            zeroGradient;
     }
     procBoundary2to0
     {

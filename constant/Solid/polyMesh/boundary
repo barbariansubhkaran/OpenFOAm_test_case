@@ -1,13 +1,15 @@
 /*--------------------------------*- C++ -*----------------------------------*\
-  =========                 |
-  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
-   \\    /   O peration     | Website:  https://openfoam.org
-    \\  /    A nd           | Version:  10
-     \\/     M anipulation  |
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2206                                  |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
 FoamFile
 {
-    format      ascii;
+    version     2.0;
+    format      binary;
+    arch        "LSB;label=32;scalar=64";
     class       polyBoundaryMesh;
     location    "constant/polyMesh";
     object      boundary;
@@ -16,24 +18,23 @@ FoamFile
 
 2
 (
-    Interface
+    Re_Interface
     {
       type	mappedWall;
       sampleRegion	Fluid;
-      samplePatch	Interface;
+      samplePatch	Re_Interface;
       sampleMode	nearestPatchFace;
       offsetMode	uniform;
       offset	(0.0 0.0 0.0);
-        inGroups        List<word> 1(wall);
-        nFaces          2272;
-        startFace       67500;
+        nFaces          4988;
+        startFace       322890;
     }
-    Solid
+    Re_Solid
     {
         type            wall;
-        inGroups        List<word> 1(wall);
-        nFaces          8304;
-        startFace       69772;
+        inGroups        1(wall);
+        nFaces          27890;
+        startFace       327878;
     }
 )
 

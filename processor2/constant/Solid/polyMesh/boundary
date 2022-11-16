@@ -1,7 +1,7 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  2112                                  |
+|  \\    /   O peration     | Version:  2206                                  |
 |   \\  /    A nd           | Website:  www.openfoam.com                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
@@ -18,40 +18,40 @@ FoamFile
 
 4
 (
-    Interface
+    Re_Interface
     {
         type            mappedWall;
         inGroups        2(wall mappedPatch);
-        nFaces          496;
-        startFace       16611;
+        nFaces          1310;
+        startFace       80357;
         sampleMode      nearestPatchFace;
         sampleRegion    Fluid;
-        samplePatch     Interface;
+        samplePatch     Re_Interface;
     }
-    Solid
+    Re_Solid
     {
         type            wall;
         inGroups        1(wall);
-        nFaces          2064;
-        startFace       17107;
+        nFaces          6875;
+        startFace       81667;
     }
-    procBoundary2to0
+    procBoundary2to1
     {
         type            processor;
         inGroups        1(processor);
-        nFaces          136;
-        startFace       19171;
+        nFaces          279;
+        startFace       88542;
         matchTolerance  0.0001;
         transform       unknown;
         myProcNo        2;
-        neighbProcNo    0;
+        neighbProcNo    1;
     }
     procBoundary2to3
     {
         type            processor;
         inGroups        1(processor);
-        nFaces          181;
-        startFace       19307;
+        nFaces          389;
+        startFace       88821;
         matchTolerance  0.0001;
         transform       unknown;
         myProcNo        2;

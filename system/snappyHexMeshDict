@@ -16,27 +16,52 @@ addLayers       false;
 
 geometry
 {
-    Fluid
+    Re_inlet
     {
         type triSurfaceMesh;
-        file "Fluid.stl";
+        file "Re_inlet.stl";
         // Min Bounds = [-6.02553e-01 -6.02553e-01  1.28544e-01]
         // Max Bounds = [ 6.02553e-01  6.02553e-01  1.28544e-01]
         // Area = 1.13330e+00
     }
-    Interface
+    Re_Outlet
     {
         type triSurfaceMesh;
-        file "Interface.stl";
+        file "Re_Outlet.stl";
+        // Min Bounds = [-6.02553e-01 -6.02553e-01  1.28544e-01]
+        // Max Bounds = [ 6.02553e-01  6.02553e-01  1.28544e-01]
+        // Area = 1.13330e+00
+    }
+    Re_Interface
+    {
+        type triSurfaceMesh;
+        file "Re_Interface.stl";
         // Min Bounds = [-6.02553e-01 -6.02553e-01 -1.28544e-01]
         // Max Bounds = [ 6.02553e-01  6.02553e-01  1.28544e-01]
         // Area = 9.71757e-01
     }
 
-    Solid
+    Re_Solid
     {
         type triSurfaceMesh;
-        file "Solid.stl";
+        file "Re_Solid.stl";
+        // Min Bounds = [-1.00000e+00 -8.17599e-01 -1.28544e-01]
+        // Max Bounds = [ 1.00000e+00  8.17599e-01  1.28544e-01]
+        // Area = 4.30692e+00
+    }
+    Re_bottom_walls
+    {
+        type triSurfaceMesh;
+        file "Re_bottom_walls.stl";
+        // Min Bounds = [-1.00000e+00 -8.17599e-01 -1.28544e-01]
+        // Max Bounds = [ 1.00000e+00  8.17599e-01  1.28544e-01]
+        // Area = 4.30692e+00
+    }
+
+    Re_top_walls
+    {
+        type triSurfaceMesh;
+        file "Re_top_walls.stl";
         // Min Bounds = [-1.00000e+00 -8.17599e-01 -1.28544e-01]
         // Max Bounds = [ 1.00000e+00  8.17599e-01  1.28544e-01]
         // Area = 4.30692e+00
@@ -49,41 +74,72 @@ castellatedMeshControls
     maxGlobalCells  10000000;
     minRefinementCells 10;
     maxLoadUnbalance 0.1;
-    nCellsBetweenLevels 3;
-    locationInMesh (0 -0.276463 0.035834);
+    nCellsBetweenLevels 4;
+    locationInMesh (0 0 0.442153);
     allowFreeStandingZoneFaces true;
     resolveFeatureAngle 30;
     features
     (
         {
-            file "Fluid.eMesh";
-            level 2;
+            file "Re_inlet.eMesh";
+            level 0;
         }
         {
-            file "Interface.eMesh";
-            level 2;
+            file "Re_Outlet.eMesh";
+            level 0;
+        }
+        {
+            file "Re_Interface.eMesh";
+            level 0;
         }
 
         {
-            file "Solid.eMesh";
-            level 2;
+            file "Re_Solid.eMesh";
+            level 0;
+        }
+
+        {
+            file "Re_top_walls.eMesh";
+            level 0;
+        }
+
+        {
+            file "Re_bottom_walls.eMesh";
+            level 0;
         }
 
     );
     refinementSurfaces
     {
-        Fluid
+        Re_inlet
         {
             level (2 2);
-            patchInfo { type wall; }
+            patchInfo { type patch; }
         }
-        Interface
+        Re_Outlet
+        {
+            level (2 2);
+            patchInfo { type patch; }
+        }
+        Re_Interface
         {
             level (2 2);
             patchInfo { type wall; }
         }
 
-        Solid
+        Re_Solid
+        {
+            level (2 2);
+            patchInfo { type wall; }
+        }
+
+        Re_top_walls
+        {
+            level (2 2);
+            patchInfo { type wall; }
+        }
+
+        Re_bottom_walls
         {
             level (2 2);
             patchInfo { type wall; }
@@ -128,16 +184,30 @@ addLayersControls
     nLayerIter      50;
     layers
     {
-        Fluid
+        Re_inlet
         {
              nSurfaceLayers 0;
         }
-        Interface
+        Re_Outlet
+        {
+             nSurfaceLayers 0;
+        }
+        Re_Interface
         {
              nSurfaceLayers 0;
         }
 
-        Solid
+        Re_Solid
+        {
+             nSurfaceLayers 0;
+        }
+
+        Re_top_walls
+        {
+             nSurfaceLayers 0;
+        }
+
+        Re_bottom_walls
         {
              nSurfaceLayers 0;
         }

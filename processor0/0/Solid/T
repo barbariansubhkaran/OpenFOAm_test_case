@@ -1,7 +1,7 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  2112                                  |
+|  \\    /   O peration     | Version:  2206                                  |
 |   \\  /    A nd           | Website:  www.openfoam.com                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
@@ -18,39 +18,37 @@ FoamFile
 
 dimensions      [0 0 0 1 0 0 0];
 
-internalField   uniform 300;
+internalField   uniform 400;
 
 boundaryField
 {
-    Interface
+    Re_Interface
     {
-        type            compressible::turbulentTemperatureRadCoupledMixed;
-        refValue        uniform 300;
-        refGradient     uniform 0;
-        valueFraction   uniform 1;
-        source          uniform 0;
-        value           uniform 300;
-        Tnbr            T;
-        qrNbr           qr;
-        qr              none;
-        thermalInertia  false;
+        type            compressible::turbulentTemperatureCoupledBaffleMixed;
         kappaMethod     solidThermo;
         kappa           none;
-        field           T;
+        neighbourFieldName T;
+        Tnbr            T;
+        value           uniform 400;
     }
-    Solid
+    Re_Solid
     {
-        type            zeroGradient;
+        type            compressible::turbulentTemperatureCoupledBaffleMixed;
+        kappaMethod     solidThermo;
+        kappa           none;
+        neighbourFieldName T;
+        Tnbr            T;
+        value           uniform 400;
     }
     procBoundary0to1
     {
         type            processor;
-        value           uniform 300;
+        value           uniform 400;
     }
-    procBoundary0to2
+    procBoundary0to3
     {
         type            processor;
-        value           uniform 300;
+        value           uniform 400;
     }
 }
 

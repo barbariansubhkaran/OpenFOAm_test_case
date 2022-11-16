@@ -11,19 +11,26 @@ dimensions	[1 -1 -2 0 0 0 0];
 internalField	uniform 100000.0;
 boundaryField
 {
-
-	Interface
+	Re_inlet
 	{
-		type	fixedFluxPressure;
+		type	zeroGradient;
+	}
+	Re_Outlet
+	{
+		type	zeroGradient;
+	}
+	Re_top_walls
+	{
+		type	zeroGradient;
 	}
 
-	Inlet
+	Re_bottom_walls
+	{
+		type	zeroGradient;
+	}
+
+	Re_Interface
 	{
 		type	fixedFluxPressure;
-	}
-	Outlet
-	{
-		type	fixedValue;
-		value	uniform 100000.0;
 	}
 }

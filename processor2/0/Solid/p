@@ -1,7 +1,7 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  2112                                  |
+|  \\    /   O peration     | Version:  2206                                  |
 |   \\  /    A nd           | Website:  www.openfoam.com                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
@@ -22,15 +22,15 @@ internalField   uniform 0;
 
 boundaryField
 {
-    Interface
+    Re_Interface
     {
         type            zeroGradient;
     }
-    Solid
+    Re_Solid
     {
         type            zeroGradient;
     }
-    procBoundary2to0
+    procBoundary2to1
     {
         type            processor;
         value           uniform 0;

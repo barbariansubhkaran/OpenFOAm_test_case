@@ -6,17 +6,20 @@ FoamFile
 	object	controlDict;
 	version	2.0;
 }
-application	chtMultiRegionSimpleFoam;
-deltaT	1;
-endTime	2000;
-purgeWrite	2;
+adjustTimeStep	true;
+application	chtMultiRegionFoam;
+deltaT	0.2;
+endTime	200;
+maxCo	2;
+maxDeltaT	0.2;
+purgeWrite	0;
 startFrom	latestTime;
 startTime	0;
 stopAt	endTime;
 timeFormat	general;
 timePrecision	6;
-writeControl	timeStep;
-writeInterval	10;
+writeControl	adjustableRunTime;
+writeInterval	5;
 writePrecision	7;
 runTimeModifiable	true;
 compression	uncompressed;
@@ -24,5 +27,23 @@ writeFormat	binary;
 libs	("libfvMotionSolvers.so" "libturbulenceModels.so" "libturbulenceModelSchemes.so");
 functions
 {
-
+	writeExtraFieldsInFluid
+	{
+		libs	("libutilityFunctionObjects.so");
+		objects	(rho K);
+		type	writeObjects;
+		writeOption	anyWrite;
+		enabled	true;
+		log	true;
+		writeControl	writeTime;
+		region	fluid;
+	}
+}
+OptimisationSwitches
+{
+	fileHandler	uncollated;
+	fileModificationSkew	0;
+	maxMasterFileBufferSize	1.0E9;
+	maxThreadFileBufferSize	1.0E9;
+	mpiBufferSize	200000000;
 }

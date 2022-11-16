@@ -11,19 +11,28 @@ dimensions	[1 -1 -2 0 0 0 0];
 internalField	uniform 100000.0;
 boundaryField
 {
-
-	Interface
+	Re_inlet
+	{
+		type	calculated;
+		value	uniform 100000.0;
+	}
+	Re_Outlet
+	{
+		type	calculated;
+		value	uniform 100000.0;
+	}
+	Re_top_walls
+	{
+		type	calculated;
+		value	uniform 100000.0;
+	}
+	Re_bottom_walls
 	{
 		type	calculated;
 		value	uniform 100000.0;
 	}
 
-	Inlet
-	{
-		type	calculated;
-		value	uniform 100000.0;
-	}
-	Outlet
+	Re_Interface
 	{
 		type	calculated;
 		value	uniform 100000.0;

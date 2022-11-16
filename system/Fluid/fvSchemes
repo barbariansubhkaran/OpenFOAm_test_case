@@ -1,63 +1,46 @@
-/*--------------------------------*- C++ -*----------------------------------*\
-| =========                 |                                                 |
-| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  v2112                                 |
-|   \\  /    A nd           | Website:  www.openfoam.com                      |
-|    \\/     M anipulation  |                                                 |
-\*---------------------------------------------------------------------------*/
 FoamFile
 {
-    version     2.0;
-    format      ascii;
-    class       dictionary;
-    object      fvSchemes;
+	version	2.0;
+	class	dictionary;
+	format	ascii;
+	location	"system/fluid";
+	object	fvSchemes;
 }
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
-
 ddtSchemes
 {
-    default         steadyState;
+	default	Euler;
 }
-
 gradSchemes
 {
-    default         Gauss linear;
+	default	Gauss linear;
 }
-
 divSchemes
 {
-    default         none;
-
-    div(phi,U)      bounded Gauss upwind;
-
-    energy          bounded Gauss upwind;
-    div(phi,K)      $energy;
-    div(phi,h)      $energy;
-
-    turbulence      bounded Gauss upwind;
-    div(phi,k)      $turbulence;
-    div(phi,epsilon) $turbulence;
-    div(phi,R)      $turbulence;
-    div(R)          Gauss linear;
-
-    div(Ji,Ii_h)    Gauss linearUpwind grad(U);
-    div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear;
+	div(((rho*nuEff)*dev2(T(grad(U)))))	Gauss linear;
+	div(R)	Gauss linear;
+	default	Gauss upwind;
+	div(phi,U)	bounded Gauss upwind;
+	div(phi,h)	bounded Gauss upwind;
 }
-
 laplacianSchemes
 {
-    default         Gauss linear uncorrected;
+	default	Gauss linear corrected;
 }
-
 interpolationSchemes
 {
-    default         linear;
+	default	linear;
 }
-
 snGradSchemes
 {
-    default         uncorrected;
+	default	corrected;
 }
-
-
-// ************************************************************************* //
+fluxRequired
+{
+	default	no;
+	p_rgh	;
+}
+wallDist
+{
+	method	meshWave;
+	nRequired	false;
+}

@@ -1,7 +1,7 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  2112                                  |
+|  \\    /   O peration     | Version:  2206                                  |
 |   \\  /    A nd           | Website:  www.openfoam.com                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
@@ -18,40 +18,40 @@ FoamFile
 
 4
 (
-    Interface
+    Re_Interface
     {
         type            mappedWall;
         inGroups        2(wall mappedPatch);
-        nFaces          640;
-        startFace       16583;
+        nFaces          1234;
+        startFace       81107;
         sampleMode      nearestPatchFace;
         sampleRegion    Fluid;
-        samplePatch     Interface;
+        samplePatch     Re_Interface;
     }
-    Solid
+    Re_Solid
     {
         type            wall;
         inGroups        1(wall);
-        nFaces          2040;
-        startFace       17223;
+        nFaces          7095;
+        startFace       82341;
     }
-    procBoundary3to1
+    procBoundary3to0
     {
         type            processor;
         inGroups        1(processor);
-        nFaces          120;
-        startFace       19263;
+        nFaces          280;
+        startFace       89436;
         matchTolerance  0.0001;
         transform       unknown;
         myProcNo        3;
-        neighbProcNo    1;
+        neighbProcNo    0;
     }
     procBoundary3to2
     {
         type            processor;
         inGroups        1(processor);
-        nFaces          181;
-        startFace       19383;
+        nFaces          389;
+        startFace       89716;
         matchTolerance  0.0001;
         transform       unknown;
         myProcNo        3;
