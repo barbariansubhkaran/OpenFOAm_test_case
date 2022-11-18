@@ -9,6 +9,7 @@ FoamFile
 solvers
 {
 }
+
 PIMPLE
 {
 	nOuterCorrectors	1;

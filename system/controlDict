@@ -24,10 +24,11 @@ writePrecision	7;
 runTimeModifiable	true;
 compression	uncompressed;
 writeFormat	binary;
-// libs	("libfvMotionSolvers.so" "libturbulenceModels.so" "libturbulenceModelSchemes.so");
+
+libs	("libfvMotionSolvers.so" "libturbulenceModels.so" "libturbulenceModelSchemes.so");
 functions
 {
-/*	writeExtraFieldsInFluid
+	writeExtraFieldsInFluid
 	{
 		libs	("libutilityFunctionObjects.so");
 		objects	(rho K);
@@ -39,5 +40,5 @@ functions
 		region	Fluid;
 	}
 
-	*/
+
 }
