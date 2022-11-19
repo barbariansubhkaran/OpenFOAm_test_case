@@ -12,7 +12,7 @@ internalField	uniform 400.0;
 boundaryField
 {
 
-	Re_Interface
+	Re_Solid
 	{
 		type	compressible::turbulentTemperatureCoupledBaffleMixed;
 		value	uniform 400.0;
@@ -22,8 +22,5 @@ boundaryField
 		Tnbr	T;
 	}
 
-	Re_Solid
-	{
-		type zeroGradient;
-	}
+	
 }

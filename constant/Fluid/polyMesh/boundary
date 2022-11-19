@@ -21,39 +21,39 @@ FoamFile
     Re_inlet
     {
         type            patch;
-        nFaces          8572;
-        startFace       785152;
+        nFaces          544;
+        startFace       34696;
     }
     Re_Outlet
     {
         type            patch;
-        nFaces          8494;
-        startFace       793724;
+        nFaces          548;
+        startFace       35240;
     }
-    Re_Interface
+    Re_Solid
     {
-      type	mappedWall;
-       sampleRegion	Solid;
-       samplePatch	Re_Interface;
-       sampleMode	nearestPatchFace;
-       offsetMode	uniform;
-       offset	(0.0 0.0 0.0);
-        nFaces          5100;
-        startFace       802218;
+        type  mappedWall;
+       sampleRegion  Solid;
+       samplePatch  Re_Solid;
+       sampleMode  nearestPatchFace;
+       offsetMode  uniform;
+       offset  (0.0 0.0 0.0);
+        nFaces          288;
+        startFace       35788;
     }
     Re_bottom_walls
     {
         type            wall;
         inGroups        1(wall);
-        nFaces          21949;
-        startFace       807318;
+        nFaces          1368;
+        startFace       36076;
     }
     Re_top_walls
     {
         type            wall;
         inGroups        1(wall);
-        nFaces          14120;
-        startFace       829267;
+        nFaces          864;
+        startFace       37444;
     }
 )
 

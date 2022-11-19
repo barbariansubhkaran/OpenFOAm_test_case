@@ -31,7 +31,7 @@ boundaryField
 	}
 
 
-	Re_Interface
+	Re_Solid
 	{
 		type	noSlip;
 	}

@@ -32,7 +32,7 @@ boundaryField
 		value	uniform 100000.0;
 	}
 
-	Re_Interface
+	Re_Solid
 	{
 		type	calculated;
 		value	uniform 100000.0;

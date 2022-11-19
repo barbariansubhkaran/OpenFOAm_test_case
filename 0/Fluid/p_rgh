@@ -29,7 +29,7 @@ boundaryField
 		type	zeroGradient;
 	}
 
-	Re_Interface
+	Re_Solid
 	{
 		type	fixedFluxPressure;
 	}
